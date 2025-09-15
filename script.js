@@ -11,14 +11,17 @@ else return scissors
 */
 function getComputerChoice() {
     let randomNumber = Math.round(Math.random() * 100)
-    console.log(randomNumber)
+    // console.log(randomNumber)
     if (randomNumber <= 33) {
+        console.log("Rock")
         return "Rock"
     }
     else if (randomNumber > 33 && randomNumber <= 66) {
+        console.log("Paper")
         return "Paper"
     }
     else {
+        console.log("Scissors")
         return "Scissors"
     }
 }
@@ -33,14 +36,17 @@ else return "Error input"
 */
 function getHumanChoice() {
     let humanChoice = prompt("Type 1 for rock, 2 for paper, 3 for scissors")
-    console.log(humanChoice)
+    // console.log(humanChoice)
     if (humanChoice == 1) {
+        console.log("Rock")
         return "Rock"
     }
     else if (humanChoice == 2) {
+        console.log("Paper")
         return "Paper"
     }
     else if (humanChoice == 3) {
+        console.log("Scissors")
         return "Scissors"
     }
     else {
@@ -50,8 +56,6 @@ function getHumanChoice() {
 
 /*
 Use the human and computer player choices as arguments
-Repeat the gameplay 5 time
-Every loop check:
 if(humanChoice === computerChoice) 
     print draw
     skip to the next game
@@ -80,7 +84,6 @@ else if(humanChoice === "Scissors" && computerChoice === "Paper")
     add 1 point to human
     skip to the next game
 
-End the loop
 */
 function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
@@ -102,13 +105,30 @@ function playRound(humanChoice, computerChoice) {
         console.log("You win")
         humanScore += 1
     }
-    else if (humanChoice === "Papper" && computerChoice === "Rock") {
+    else if (humanChoice === "Paper" && computerChoice === "Rock") {
         console.log("You win")
         humanScore += 1
     }
-    else if (humanChoice === "Scissors" && computerChoice === "Papper") {
+    else if (humanChoice === "Scissors" && computerChoice === "Paper") {
         console.log("You win")
         humanScore += 1
     }
 }
-
+/*
+Repeat the gameplay 5 time
+Every loop:
+Recall getHumanChoice and assign its to a variable
+Recall getComputerChoice and assign its to a variable
+call playRound function use getHumanChoice and getComputerChoice return value as agruments 
+check who is winner and track score
+*/
+function playGame(){
+    for(let i = 0; i < 5; i++){
+        let humanChoice = getHumanChoice()
+        let computerChoice = getComputerChoice()
+        playRound(humanChoice, computerChoice)
+        console.log("Player score: " + humanScore + " Computer score: " + computerScore)
+        console.log(" ")
+    }
+}
+playGame()
