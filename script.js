@@ -77,16 +77,3 @@ function playRound(humanChoice, computerChoice) {
         humanScore += 1
     }
 }
-/*
-Repeat the gameplay 5 time and track score
-*/
-function playGame() {
-    for (let i = 0; i < 5; i++) {
-        let humanChoice = getHumanChoice()
-        let computerChoice = getComputerChoice()
-        playRound(humanChoice, computerChoice)
-        console.log("Player score: " + humanScore + " Computer score: " + computerScore)
-        console.log(" ")
-    }
-}
-playGame()
